@@ -13,6 +13,7 @@ from keras.callbacks import Callback, EarlyStopping, ModelCheckpoint
 from keras.utils import to_categorical
 
 from keras.models import load_model
+from keras.regularizers import l2
 
 import numpy as np
 import pandas as pd
@@ -48,17 +49,20 @@ f.close()
 X_test = np.arange(-1.72, 3.51, 0.01).reshape(-1, 1)
 
 class FFNN2:
-    def __init__(self, hidden_layers=[1024, 1024, 1024, 1024, 1024], droprate=0.2, activation='relu'):
+    def __init__(self, hidden_layers=[1024, 1024, 1024, 1024], droprate=0.1, activation='relu'):
+        reg = 1e-6
         model = Sequential()
-        model.add(Dense(hidden_layers[0], activation=activation, input_shape=(1, ), kernel_initializer='lecun_uniform'))
+        model.add(Dense(hidden_layers[0], activation=activation, input_shape=(1, ), kernel_initializer='lecun_uniform', \
+                        W_regularizer=l2(reg)))
         for d in hidden_layers[1:]:
             model.add(Dropout(droprate))
-            model.add(Dense(d, activation=activation, kernel_initializer='lecun_uniform'))
+            model.add(Dense(d, activation=activation, kernel_initializer='lecun_uniform', \
+                            W_regularizer=l2(reg)))
         model.add(Dropout(droprate))
-        model.add(Dense(1))
+        model.add(Dense(1, W_regularizer=l2(reg)))
         self.model = model
         
-    def fit(self, X_train, y_train, lr=0.0001, epochs=300000, batch_size=100, verbose=0):
+    def fit(self, X_train, y_train, lr=0.0001, epochs=1000000, batch_size=100, verbose=0):
         self.lr = lr
         self.epochs = epochs
         self.batch_size = batch_size
