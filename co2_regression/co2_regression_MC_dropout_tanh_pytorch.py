@@ -38,7 +38,7 @@ f.close()
 X_test = np.arange(-1.72, 3.51, 0.01).reshape(-1, 1)
 
 class MLP2(nn.Module):
-    def __init__(self, hidden_layers=[1024, 1024, 1024, 1024], droprate=0.1, activation='relu'):
+    def __init__(self, hidden_layers=[1024, 1024, 1024, 1024, 1024], droprate=0.2, activation='relu'):
         super(MLP2, self).__init__()
         self.model = nn.Sequential()
         self.model.add_module('input', nn.Linear(1, hidden_layers[0]))
@@ -60,14 +60,14 @@ class MLP2(nn.Module):
         return self.model(x)
     
 class MLP2Regressor:
-    def __init__(self, hidden_layers=[1024, 1024, 1024, 1024], droprate=0.1, activation='relu', \
-                 max_epoch=1000000, lr=0.0001):
+    def __init__(self, hidden_layers=[1024, 1024, 1024, 1024, 1024], droprate=0.2, activation='relu', \
+                 max_epoch=1000000, lr=0.0001, weight_decay=1e-6):
         self.max_epoch = max_epoch
         self.lr = lr
         self.model = MLP2(hidden_layers=hidden_layers, droprate=droprate, activation=activation)
         self.model.cuda()
         self.criterion = nn.MSELoss().cuda()
-        self.optimizer = optim.Adam(self.model.parameters(), lr=lr)
+        self.optimizer = optim.Adam(self.model.parameters(), lr=lr, weight_decay=weight_decay)
         
     def fit(self, X_train, y_train, verbose=True):
         X = Variable(torch.from_numpy(X_train).type(torch.FloatTensor)).cuda()
