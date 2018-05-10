@@ -11,20 +11,9 @@ title: Dropout as Regularization and Bayesian Approximation
 **Warning:** Some parts of the notebook is very slow to run so we commented them out with **triple quotes** and provided the saved models and results (see above link). To re-run those parts, you will need to uncomment the code and run with GPU and CUDA support. Except the commented part, this notebook can run without GPU (as long as you downloaded our models). We trained our models on `Nvidia GTX 1080 Ti` GPU and **it takes at least 15 hours to train all models in this notebook**.
 
 **Table of Content:**
-+ [Dropout Introduction](#1.-Introduction)
-+ [Model Description](#2.-Model-Description)
-+ [Dropout Implementation](#3.-Dropout-Implementation)
-+ [Dropout as Regularization](#4.-Dropout-as-Regularization)
-    + [Multilayer Perceptron on MNIST](#4.1-Multilayer-Perceptron)
-    + [Convolutional Neural Network (LeNet) on MNIST](#4.2-Convolutional-Neural-Network-%28LeNet%29)
-+ [Dropout as Bayesian Approximation](#5.-Dropout-as-Bayesian-Approximation)
-    + [Dropout as Bayesian Approximation in Classification Task](#5.1-Dropout-as-Bayesian-Approximation-in-Classification-Task)
-        + [Multilayer Perceptron on MNIST](#5.1.1-MLP-50%25-dropout-in-hidden-layers-%2B-20%25-in-input-layer)
-        + [Convolutional Neural Network (LeNet) on MNIST](#5.1.2-LeNet-50%25-dropout)
-        + [Discussion](#5.1.3-Discussion)
-    + [Dropout as Bayesian Approximation in Regression Task and Compare with Gaussian Process](#5.2.-Dropout-as-Bayesian-Approximation-in-Regression-Task)
-+ [Conclusions](#6.-Conclusions)
-+ [Reference](#Reference)
+{:.no_toc}
+*  
+{: toc}
 
 ## 1. Introduction
 Deep neural network is a very powerful tool in machine learning. Multiple non-linear hidden layers enable the model to learn complicated relationships between input and output. However, when the training set is small, there are different parameter settings that would fits training set perfectly, but the one complex parameter setting tends to perform poorly on the test dataset, ie we got the problem of overfitting. One way to solve this problem is by averaging predictions of different neural networks , but this becomes computationally expensive when applied to large datasets. The alternative that makes it possible to train a huge number of different networks in a reasonable time is dropout, which randomly omits some hidden units i.e. feature detectors to prevent co-adaption and samples from an exponential number of different “thinned” networks. The idea of dropout model can be shown as below [[3](#Reference)]. Applying dropout to a neural network amounts to sampling a “thinned” network from it, where you cut all the input and output connections for the dropped units. Training process for that would be like training a number of thinned networks with extensive weight sharing. But when it comes to testing, averaging predictions over different networks seems to be unfeasible, so a single network with scaled weights for all the units was used.
