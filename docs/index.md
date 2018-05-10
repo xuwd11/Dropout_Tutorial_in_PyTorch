@@ -6,6 +6,8 @@ title: Dropout as Regularization and Bayesian Approximation
 
 **Abstract:**  This tutorial aims to give readers a complete view of dropout, which includes the implementation of dropout, how to use dropout and why dropout is useful. Basically, dropout can (1) reduce overfitting (so test results will be better) and (2) provide model uncertainty like Bayesian models we see in the class (Bayesian Approximation).
 
+**Note:** You can view this tutorial on [GitHub](https://github.com/xuwd11/Dropout/tree/master/submit).
+
 **Download data and trained models:** [Google Drive Link](https://drive.google.com/open?id=1EZxHILXs82cM0owm0-n_LRQV6TM17TR2) (Unzip it and put all files under the same folder with this notebook)
 
 **Warning:** Some parts of the notebook is very slow to run so we commented them out with **triple quotes** and provided the saved models and results (see above link). To re-run those parts, you will need to uncomment the code and run with GPU and CUDA support. Except the commented part, this notebook can run without GPU (as long as you downloaded our models). We trained our models on `Nvidia GTX 1080 Ti` GPU and **it takes at least 15 hours to train all models in this notebook**.
@@ -1001,7 +1003,7 @@ This tutorial focuses on paper [[1](#Reference)] and [[2](#Reference)]. We showe
 
 In addition, we showed dropout as Bayesian approximation (obtain model uncertainty [[2](#Reference)]). For regression tasks, we also compared the deep neural network with dropout as Bayesian approximation with the Gaussian Process (GP) we learnt in AM207. From the figure, we see both models successfully show the uncertainty for points away from the training data points. According to [[2](#Reference)], the uncertainty estimates are different since they correpond to different Gaussian process covariance functions. Since GP and neural networks with dropout are similar, in large dataset, we can use neural networks with dropout to approximate GP (with large amount of data, GP has very large covariance matrix and it's hard to fit).
 
-## Reference
+## 7. References
 
 [1] [Improving neural networks by preventing co-adaptation of feature detectors](https://arxiv.org/pdf/1207.0580.pdf)
 
