@@ -1,4 +1,6 @@
-# Tutorial: Dropout as Regularization and Bayesian Approximation
+---
+title: Tutorial: Dropout as Regularization and Bayesian Approximation
+---
 
 *Weidong Xu, Zeyu Zhao, Tianning Zhao*
 
@@ -27,10 +29,10 @@ Besides letting the network predict future data better (reduce overfitting), the
 ## 2. Model Description
 With dropout, the feed-forward operation of neural networks can be described as :
 
-$$r_j^{(l)} \sim \text{Bernoulli}(p),$$  
-$$\tilde y^{(l)} = r^{(l)} \odot y^{(l)},$$  
-$$z_i^{(l+1)} = w_i^{(l+1)}\tilde y^{(l)} + b_i^{(l+1)},$$  
-$$y_i^{(l+1)} = f(z_i^{(l+1)})$$
+<center>$$r_j^{(l)} \sim \text{Bernoulli}(p),$$</center>  
+<center>$$\tilde y^{(l)} = r^{(l)} \odot y^{(l)},$$</center>  
+<center>$$z_i^{(l+1)} = w_i^{(l+1)}\tilde y^{(l)} + b_i^{(l+1)},$$</center>  
+<center>$$y_i^{(l+1)} = f(z_i^{(l+1)})$$</center>
 
 where $l$ is the index the hidden layers of the network, $z^{(l)}$ denote
 the vector of inputs into layer $l$, $y^{(l)}$ denote the vector of outputs from layer $l$ ($y^{(0)} = x$ is the input). $w^{(l)}$ and $b^{(l)}$ are the weights and biases at layer $l$. $f$ is any activation function. And $\odot$ represents element-wise multiplication. Please see the detailed implementation in Section 3.
@@ -44,10 +46,10 @@ The related Gaussian process could be described as below:
 $$F \vert X, W_1, b \sim N(0, K(X,X))$$  
 $$Y \vert F \sim N(F, \tau^{-1}I_N)$$
 
-Introduing $W_1$, which is a matrix parameterizing the covariance function K:
+Introduing $W_1$, which is a matrix parameterizing the covariance function K:  
 $$ p(Y\vert X) = \int p(Y\vert F)p(F\vert W_1, b, X)p(W_1)p(b)$$  
 
-Introduing $W_2$, another matrix that get the integration rid of F:
+Introduing $W_2$, another matrix that get the integration rid of F:  
 $$ p(Y\vert X) = \int p(Y\vert X, W_1, W_2, b)p(W_1)p(W_2)p(b)$$  
 
 To perform variational inference in our approximate model we need to define a variational distribution $q(W_1, W_2, b) := q(W_1)q(W_2)q(b)$, where $q(W_1)$ and $q(W_2)$ are defined as a Gaussian mixture model with two components, factorized over dimensinality of $W_1$ and $W_2$. For example: 
