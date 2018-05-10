@@ -1,9 +1,8 @@
+---
+title: Dropout as Regularization and Bayesian Approximation
+---
 
-<h1 align='center'>Dropout as Regularization and Bayesian Approximation</h1>
-
- <h3 align='center'>Weidong Xu, Zeyu Zhao, Tianning Zhao</h3>
-
-Our assigned paper is [Improving neural networks by preventing co-adaptation of feature detectors](https://arxiv.org/pdf/1207.0580.pdf). In our tutorial, we also implemented models in the paper [Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning](https://arxiv.org/pdf/1506.02142.pdf) to show that dropout can provide model uncertainty.
+*Weidong Xu, Zeyu Zhao, Tianning Zhao*
 
 **Abstract:**  This tutorial aims to give readers a complete view of dropout, which includes the implementation of dropout, how to use dropout and why dropout is useful. Basically, dropout can (1) reduce overfitting (so test results will be better) and (2) provide model uncertainty like Bayesian models we see in the class (Bayesian Approximation).
 
