@@ -1,5 +1,5 @@
 theme: jekyll-theme-primer
-title: Dropout as Regularization and Bayesian Approximation
+title: Dropout Tutorial
 description: Dropout as Regularization and Bayesian Approximation
 baseurl:
 markdown: kramdown
