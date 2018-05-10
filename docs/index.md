@@ -182,7 +182,7 @@ print('image data shape:',images[0].numpy().shape)
 
 ### 4.1 Multilayer Perceptron
 
-We first build a multilayer perceptron (MLP), and use the code below to define the network as described in paper [[1](#Reference)]. This network has 2 hidden layer with 800 hidden units per hidden layer. To show our implementation of Dropout above is correct, we use `MyDropout` here.
+We first build a multilayer perceptron (MLP), and use the code below to define the network as described in paper [[1](#7. Reference)]. This network has 2 hidden layer with 800 hidden units per hidden layer. To show our implementation of Dropout above is correct, we use `MyDropout` here.
 
 
 
@@ -1006,9 +1006,7 @@ In addition, we showed dropout as Bayesian approximation (obtain model uncertain
 
 ## 7. References
 
-[1] [Improving neural networks by preventing co-adaptation of feature detectors](https://arxiv.org/pdf/1207.0580.pdf)
-
-[2] [Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning](https://arxiv.org/pdf/1506.02142.pdf)
-
+[1] [Improving neural networks by preventing co-adaptation of feature detectors](https://arxiv.org/pdf/1207.0580.pdf), G. E. Hinton, et al., 2012  
+[2] [Dropout as a Bayesian Approximation: Representing Model Uncertainty in Deep Learning](https://arxiv.org/pdf/1506.02142.pdf), Y. Gal, and Z. Ghahramani, 2016  
 [3] [Dropout: A Simple Way to Prevent Neural Networks from
-Overfitting](http://jmlr.org/papers/volume15/srivastava14a.old/srivastava14a.pdf)
+Overfitting](http://jmlr.org/papers/volume15/srivastava14a.old/srivastava14a.pdf), N. Srivastava, et al., 2014
