@@ -1,6 +1,4 @@
----
-title: Tutorial: Dropout as Regularization and Bayesian Approximation
----
+# Tutorial: Dropout as Regularization and Bayesian Approximation
 
 *Weidong Xu, Zeyu Zhao, Tianning Zhao*
 
