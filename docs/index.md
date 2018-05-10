@@ -5,9 +5,9 @@
 
 **Abstract:**  This tutorial aims to give readers a complete view of dropout, which includes the implementation of dropout (in [PyTorch](https://pytorch.org/)), how to use dropout and why dropout is useful. Basically, dropout can (1) reduce overfitting (so test results will be better) and (2) provide model uncertainty like Bayesian models we see in the class (Bayesian Approximation).
 
-**Note:** You can view this tutorial on [GitHub](https://github.com/xuwd11/Dropout_Tutorial_in_PyTorch/tree/master/submit).
+**Note:** You can view this tutorial on [GitHub](https://github.com/xuwd11/Dropout_Tutorial_in_PyTorch/blob/master/submit/dropout.ipynb).
 
-**Download data and trained models:** [Google Drive Link](https://drive.google.com/open?id=1EZxHILXs82cM0owm0-n_LRQV6TM17TR2) (Unzip it and put all files under the same folder with this notebook)
+**Download data and trained models:** [Github Link](https://github.com/xuwd11/Dropout_Tutorial_in_PyTorch/tree/master/submit) (Put all files under the same folder with this notebook)
 
 **Warning:** Some parts of the notebook is very slow to run so we commented them out with **triple quotes** and provided the saved models and results (see above link). To re-run those parts, you will need to uncomment the code and run with GPU and CUDA support. Except the commented part, this notebook can run without GPU (as long as you downloaded our models). We trained our models on `Nvidia GTX 1080 Ti` GPU and **it takes at least 15 hours to train all models in this notebook**.
 
@@ -583,7 +583,7 @@ def predict(model, X, T=1000):
 
 #### 5.1.1 MLP 50% dropout in hidden layers + 20% in input layer
 
-We get this model (50% dropout in hidden layers and 20% dropout in input layer) from [section 4.1](#4.1-Multilayer-Perceptron). First, let's see how well the model does on the rotated digit '1'.
+We get this model (50% dropout in hidden layers and 20% dropout in input layer) from [section 4.1](#41-multilayer-perceptron). First, let's see how well the model does on the rotated digit '1'.
 
 
 
@@ -637,7 +637,7 @@ There are three different classes shown in the prediction results, 1, 7 and 3. A
 
 #### 5.1.2 LeNet 50% dropout
 
-We get this model (50% dropout in hidden layers) from [section 4.2](#4.2-Convolutional-Neural-Network-%28LeNet%29). First, let's see how well the model does on the rotated digit '1'.
+We get this model (50% dropout in hidden layers) from [section 4.2](#42-convolutional-neural-network-lenet). First, let's see how well the model does on the rotated digit '1'.
 
 
 
