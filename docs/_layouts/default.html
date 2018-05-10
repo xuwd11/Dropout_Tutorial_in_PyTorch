@@ -1,25 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title>{{page.title}}</title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1404.47">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 12.0px Times; color: #000000; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; line-height: 14.0px; font: 24.0px Times; color: #000000; -webkit-text-stroke: #000000; min-height: 29.0px}
-    span.s1 {font-kerning: none}
-    span.s2 {text-decoration: underline ; font-kerning: none; color: #0000ee; -webkit-text-stroke: 0px #0000ee}
-    span.s3 {text-decoration: underline ; font-kerning: none; color: #b4d5fe; -webkit-text-stroke: 0px #b4d5fe}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">{% seo %}</span></p>
-<p class="p1"><span class="s1">{% if site.title and site.title != page.title %} <a href="file:///Users/wyssuser/Dropbox/learning/2018_1_Spring/Stochastic_Methods/paper/Dropout/docs/_layouts/%7B%7B"><span class="s2">{{ site.title }}</span></a> {% endif %} {% assign navigation_pages = site.html_pages | sort: 'nav_include' %} {% for node in navigation_pages %} {% if node.nav_include %} {% if page.url == node.url %}  | <a href="file:///Users/wyssuser/Dropbox/learning/2018_1_Spring/Stochastic_Methods/paper/Dropout/docs/_layouts/%7B%7Bnode.url%20%7C%20prepend:%20site.baseurl%7D%7D"><span class="s3">{{node.title}}</span></a> {% else %}  | <a href="file:///Users/wyssuser/Dropbox/learning/2018_1_Spring/Stochastic_Methods/paper/Dropout/docs/_layouts/%7B%7Bnode.url%20%7C%20prepend:%20site.baseurl%7D%7D"><span class="s2">{{node.title}}</span></a> {% endif %} {% endif %} {% endfor %}<span class="Apple-converted-space"> </span></span></p>
-<p class="p2"><span class="s1"><b></b></span><br></p>
-<p class="p1"><span class="s1">{{ content }} {% if site.github.private != true and site.github.license %}</span></p>
-<p class="p1"><span class="s1">This site is open source. {% github_edit_link "Improve this page" %}.<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s1">{% endif %}<span class="Apple-converted-space"> </span></span></p>
-</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}" rel="stylesheet">
+    <title>{{page.title}}</title>
+    <!-- mathjax config similar to math.stackexchange -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      jax: ["input/TeX", "output/HTML-CSS"],
+      tex2jax: {
+        inlineMath: [ ['$', '$'] ],
+        displayMath: [ ['$$', '$$']],
+        processEscapes: true,
+        displayAlign: 'center',
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+    </script>
+    <script src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+  </head>
+  <body>
+    <div class="container-lg px-3 my-5 markdown-body">
+      <nav class="group">
+        {% if site.title and site.title != page.title %}
+           <a href="{{ "/" | absolute_url }}">{{ site.title }}</a>
+        {% endif %}
+        {% assign navigation_pages = site.html_pages | sort: 'nav_include' %}
+        {% for node in navigation_pages %}
+                {% if node.nav_include %}
+                    {% if page.url == node.url %}
+                      &nbsp;|&nbsp;<a class="active" href="{{node.url | prepend: site.baseurl}}" class="active" style="color:#b4d5fe">{{node.title}}</a>
+                    {% else %}
+                      &nbsp;|&nbsp;<a href="{{node.url | prepend: site.baseurl}}">{{node.title}}</a>
+                    {% endif %}
+                {% endif %}
+        {% endfor %}
+        </nav>
+
+      {{ content }}
+
+      {% if site.github.private != true and site.github.license %}
+      <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
+        This site is open source. {% github_edit_link "Improve this page" %}.
+      </div>
+      {% endif %}
+    </div>
+    <script src="{{ "assets/javascript/anchor-js/anchor.min.js" | relative_url }}"></script>
+    <script>anchors.add();</script>
+  </body>
 </html>
