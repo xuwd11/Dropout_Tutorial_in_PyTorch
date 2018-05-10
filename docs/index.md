@@ -42,20 +42,19 @@ It is shown that deep NNs with dropout applied before every weight layer are mat
 
 The related Gaussian process could be described as below:
 
-$$F \vert X, W_1, b \sim N(0, K(X,X))$$  
-$$Y \vert F \sim N(F, \tau^{-1}I_N)$$
+<center>$$F \vert X, W_1, b \sim N(0, K(X,X))$$</center>
+<center>$$Y \vert F \sim N(F, \tau^{-1}I_N)$$</center>
 
-Introduing $W_1$, which is a matrix parameterizing the covariance function K:  
-$$ p(Y\vert X) = \int p(Y\vert F)p(F\vert W_1, b, X)p(W_1)p(b)$$  
+Introduing $W_1$, which is a matrix parameterizing the covariance function K:
+<center>$$ p(Y\vert X) = \int p(Y\vert F)p(F\vert W_1, b, X)p(W_1)p(b)$$</center>
 
-Introduing $W_2$, another matrix that get the integration rid of F:  
-$$ p(Y\vert X) = \int p(Y\vert X, W_1, W_2, b)p(W_1)p(W_2)p(b)$$  
+Introduing $W_2$, another matrix that get the integration rid of F:
+<center>$$ p(Y\vert X) = \int p(Y\vert X, W_1, W_2, b)p(W_1)p(W_2)p(b)$$</center>
 
 To perform variational inference in our approximate model we need to define a variational distribution $q(W_1, W_2, b) := q(W_1)q(W_2)q(b)$, where $q(W_1)$ and $q(W_2)$ are defined as a Gaussian mixture model with two components, factorized over dimensinality of $W_1$ and $W_2$. For example: 
 
-$$q(W_1) = \prod_{q=1}^{Q}q(w_q) $$  
-$$ q(w_q) = p_1N(m_q, \sigma^2I_K) + (1-p_1)N(0,\sigma^2I_K)$$
-
+<center>$$q(W_1) = \prod_{q=1}^{Q}q(w_q)$$</center>
+<center>$$ q(w_q) = p_1N(m_q, \sigma^2I_K) + (1-p_1)N(0,\sigma^2I_K)$$</center>
 with some probability $p_1 \in [0, 1]$, scalar $\sigma > 0$ and $m_q ∈ R^K $.
 
 In dropout model, the input was weighted by some weight matrix and then pass into some non-linear function, which is the same as what we did with the parameterizing matrix and covariance function. The output of the non-linear function would be the input of the next hidden layer. When we implement dropout, we actually created a binary vector to decide which hidden unit would be passed to the next layer, which is similar to what we did for the variational inference， sampling from that Gaussian mixture model. With this setup, we update the parameters by minimizing some loss function we choose, just as minimizing KL divergence in Gaussian process approximation. 

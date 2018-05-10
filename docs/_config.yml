@@ -1,5 +1,5 @@
 theme: jekyll-theme-primer
-title: Dropout Tutorial
+title: Dropout Tutorial in PyTorch
 description: Dropout as Regularization and Bayesian Approximation
 baseurl:
 markdown: kramdown
