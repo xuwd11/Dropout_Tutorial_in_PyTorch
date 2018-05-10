@@ -2,7 +2,7 @@
 
 This tutorial aims to give readers a complete view of dropout, which includes the implementation of dropout (in [PyTorch](https://pytorch.org/)), how to use dropout and why dropout is useful. Basically, dropout can (1) reduce overfitting (so test results will be better) and (2) provide model uncertainty like Bayesian models we see in the class (Bayesian Approximation).
 
-Please view the tutorial [here](https://xuwd11.github.io/Dropout/).
+Please view our tutorial [here](https://xuwd11.github.io/Dropout_Tutorial_in_PyTorch/).
 
 
 ## References
