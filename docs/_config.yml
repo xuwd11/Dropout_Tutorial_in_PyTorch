@@ -1,0 +1,9 @@
+theme: jekyll-theme-primer
+title: Dropout as Regularization and Bayesian Approximation
+description: Dropout as Regularization and Bayesian Approximation
+baseurl:
+markdown: kramdown
+kramdown:
+    math_engine: mathjax
+    input: GFM
+    syntax_highlighter: rouge
