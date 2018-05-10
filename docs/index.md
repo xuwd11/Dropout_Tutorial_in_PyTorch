@@ -1,6 +1,5 @@
----
-title: Tutorial: Dropout as Regularization and Bayesian Approximation
----
+
+# Tutorial: Dropout as Regularization and Bayesian Approximation
 
 *Weidong Xu, Zeyu Zhao, Tianning Zhao*
 
@@ -29,9 +28,9 @@ Besides letting the network predict future data better (reduce overfitting), the
 ## 2. Model Description
 With dropout, the feed-forward operation of neural networks can be described as :
 
-<center>$$r_j^{(l)} \sim \text{Bernoulli}(p),$$</center>  
-<center>$$\tilde y^{(l)} = r^{(l)} \odot y^{(l)},$$</center>  
-<center>$$z_i^{(l+1)} = w_i^{(l+1)}\tilde y^{(l)} + b_i^{(l+1)},$$</center>  
+<center>$$r_j^{(l)} \sim \text{Bernoulli}(p),$$</center>
+<center>$$\tilde y^{(l)} = r^{(l)} \odot y^{(l)},$$</center>
+<center>$$z_i^{(l+1)} = w_i^{(l+1)}\tilde y^{(l)} + b_i^{(l+1)},$$</center>
 <center>$$y_i^{(l+1)} = f(z_i^{(l+1)})$$</center>
 
 where $l$ is the index the hidden layers of the network, $z^{(l)}$ denote
