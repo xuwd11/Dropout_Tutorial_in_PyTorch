@@ -1,10 +1,10 @@
 ---
-title: Dropout as Regularization and Bayesian Approximation
+title: Tutorial: Dropout as Regularization and Bayesian Approximation
 ---
 
 *Weidong Xu, Zeyu Zhao, Tianning Zhao*
 
-**Abstract:**  This tutorial aims to give readers a complete view of dropout, which includes the implementation of dropout, how to use dropout and why dropout is useful. Basically, dropout can (1) reduce overfitting (so test results will be better) and (2) provide model uncertainty like Bayesian models we see in the class (Bayesian Approximation).
+**Abstract:**  This tutorial aims to give readers a complete view of dropout, which includes the implementation of dropout (in [PyTorch](https://pytorch.org/)), how to use dropout and why dropout is useful. Basically, dropout can (1) reduce overfitting (so test results will be better) and (2) provide model uncertainty like Bayesian models we see in the class (Bayesian Approximation).
 
 **Note:** You can view this tutorial on [GitHub](https://github.com/xuwd11/Dropout/tree/master/submit).
 
